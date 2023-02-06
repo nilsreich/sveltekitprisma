@@ -15,7 +15,6 @@
 			},
 			body: JSON.stringify({
 				bio: 'This is my new bio',
-				id: $page.data.user?.userId
 			})
 		});
 		const data = await res.json();
@@ -26,8 +25,7 @@
 {#if $page.data.session}
 	<h1>Protected page</h1>
 	<p>
-		This is a protected content. You can access this content because you are signed in. {$page.data
-			.user?.userId}
+		This is a protected content. You can access this content because you are signed in.
 	</p>
 	<p>Session expiry: {$page.data.session?.expires}</p>
 
