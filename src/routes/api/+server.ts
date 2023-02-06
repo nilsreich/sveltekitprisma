@@ -8,7 +8,7 @@ export const GET = async () => {
 };
 
 export const POST = async (request) => {
-    
+
     const { bio, id } = await request.body
 console.log(bio, id)
     const data = await prisma.profile.create({
@@ -16,7 +16,7 @@ console.log(bio, id)
         data: {
             bio: bio,
             user: {
-                connect: { id: id }
+                connect: { id: 'cldspl7ey0000mg09yvpwsw7b' }
             }
         }
     })
