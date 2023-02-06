@@ -9,12 +9,16 @@ export const handle = SvelteKitAuth({
     adapter: PrismaAdapter(prisma),
     providers: [GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET })],
     callbacks: {
-        async session({ session, token, user }) {
-            // Send properties to the client, like an access_token from a provider.
-            session.accessToken = token.accessToken
-            return session
+        session: async ({ session, token }) => {
+          if (session?.user) {
+            session.user.id = token.sub;
           }
-    }
+          return session;
+        },
+      },
+      session: {
+        strategy: 'jwt',
+      },
 
 })
 
