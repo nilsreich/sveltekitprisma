@@ -6,3 +6,14 @@ export const GET = async () => {
     const data = await prisma.user.findMany()
     return json(data)
 };
+
+// update user profile bio
+export const PUT = async (request) => {
+    const { id, bio } = request.body
+    const data = await prisma.user.update({
+        where: { id },
+        data: { bio }
+    })
+    return json(data)
+}
+

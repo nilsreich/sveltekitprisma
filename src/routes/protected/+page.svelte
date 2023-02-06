@@ -7,6 +7,21 @@ const getAllUser = async () => {
     console.log(data)
 }
 
+const updateBio = async () => {
+    const res = await fetch('../api/updateBio', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            bio: 'I am a new bio'
+        })
+    })
+    const data = await res.json()
+    console.log(data)
+}
+
+
 
   </script>
   
@@ -18,7 +33,8 @@ const getAllUser = async () => {
   </p>
   <p>Session expiry: {$page.data.session?.expires}</p>
 
-<button on:click={() => getAllUser()}>Test DatabaseFetch</button>
+  <button on:click={() => getAllUser()}>Test DatabaseFetch</button>
+  <button on:click={() => updateBio()}>update Bio</button>
 
 
 
