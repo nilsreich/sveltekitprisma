@@ -7,7 +7,7 @@
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ bio: 'I am a new bio', id: $page.data.session?.user.id })
+			body: JSON.stringify({ bio: 'I am a new bio', id: 'cldspl7ey0000mg09yvpwsw7b' })
 		});
 		const data = await res.json();
 		console.log(data);

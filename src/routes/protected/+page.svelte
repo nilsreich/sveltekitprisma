@@ -11,9 +11,6 @@
 		console.log($page.data.session?.user.id)
 		const res = await fetch('/api', {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
 			body: JSON.stringify({ bio: 'I am a new bio', id: $page.data.session?.user.id })
 		});
 		const data = await res.json();
