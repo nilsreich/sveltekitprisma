@@ -3,11 +3,17 @@ import type { RequestHandler } from './$types';
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
- 
+
 export const POST = (async ({ request }) => {
   const { bio } = await request.json();
 
-
-
-  return json(bio);
+  const data = await prisma.user.update({
+    where: {
+      id: 'cldspl7ey0000mg09yvpwsw7b',
+    },
+    data: {
+      name: bio,
+    },
+  })
+  return json(data);
 }) satisfies RequestHandler;
