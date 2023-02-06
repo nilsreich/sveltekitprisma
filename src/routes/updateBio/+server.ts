@@ -10,7 +10,7 @@ export const POST = (async ({ request }) => {
   const createPost = await prisma.post.create({
     data: {
       title: bio,
-      
+ 
     },
 
   })

@@ -2,7 +2,7 @@
 	let bio ='ich bin nilsreich'
   
 	async function updateBio() {
-	  const response = await fetch('/api/updateBio', {
+	  const response = await fetch('/updateBio', {
 		method: 'POST',
 		body: JSON.stringify({ bio }),
 		headers: {
