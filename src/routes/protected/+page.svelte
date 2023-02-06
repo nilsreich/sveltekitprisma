@@ -8,7 +8,7 @@ const getAllUser = async () => {
 }
 
 const updateBio = async () => {
-    const res = await fetch('../api/updateBio', {
+    const res = await fetch('../api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
