@@ -3,7 +3,7 @@
 
 	const updateBio = async () => {
 		console.log($page.data.session?.user.id);
-		const res = await fetch('/api/updateBio', {
+		const res = await fetch('/updateBio', {
 			method: 'POST',
 			body: JSON.stringify({ bio: 'I am a new bio', id: $page.data.session?.user.id })
 		});
