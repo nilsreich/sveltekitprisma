@@ -1,5 +1,10 @@
 <script lang="ts">
     import { page } from "$app/stores"
+
+const getAllUser = async () => {
+    const res = await fetch('../api')
+    const data = await res.json()
+    console.log(data)
   </script>
   
   {#if $page.data.session}
@@ -9,6 +14,11 @@
     signed in.
   </p>
   <p>Session expiry: {$page.data.session?.expires}</p>
+
+<button on:click={() => getAllUser()}>Test DatabaseFetch</button>
+
+
+
   {:else}
   <h1>Access Denied</h1>
   <p>
