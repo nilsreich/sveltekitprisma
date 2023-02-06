@@ -8,7 +8,7 @@
 	};
 
 	const updateBio = async () => {
-		const res = await fetch('../api', {
+		const res = await fetch('/api', {
 			method: 'POST'
 		});
 		const data = await res.json();

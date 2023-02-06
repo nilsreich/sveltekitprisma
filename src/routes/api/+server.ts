@@ -7,16 +7,3 @@ export const GET = async () => {
     return json(data)
 };
 
-export const POST = (async (request) => {
-
-    const data = await prisma.profile.create({
-
-        data: {
-            bio: 'I like turtles',
-            user: {
-                connect: { id: 'cldspl7ey0000mg09yvpwsw7b' }
-            }
-        }
-    })
-    return json(data)
-})
