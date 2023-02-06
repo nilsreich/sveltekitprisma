@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 
 	const getAllUser = async () => {
-		const res = await fetch('/api');
+		const res = await fetch('/api',{method: 'GET'}});
 		const data = await res.json();
 		console.log(data);
 	};
