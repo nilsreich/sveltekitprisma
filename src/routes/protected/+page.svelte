@@ -2,22 +2,17 @@
 	import { page } from '$app/stores';
 
 	const updateBio = async () => {
-		console.log($page.data.session?.user.id);
-		const res = await fetch('/protected/updateBio', {
+		const feed= 'https://www.tagesschau.de/export/video-podcast/webm/tagesschau_https/'
+		const response = await fetch(`/api/updateBio`, {
 			method: 'POST',
-			body: JSON.stringify({ bio: 'I am a new bio', id: $page.data.session?.user.id })
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ feed })
 		});
-		const data = await res.json();
-		console.log(data);
-	};
-
-	const updateBioID = async () => {
-		const res = await fetch('/protected/updateBio', {
-			method: 'PUT',
-			body: JSON.stringify({ bio: 'I am a new bio', id: 'cldspl7ey0000mg09yvpwsw7b' })
-		});
-		const data = await res.json();
-		console.log(data);
+		const data = await response.json();
+		url = await data.match(/<enclosure url="(.*)" length/)[1];
+		console.log(url)
 	};
 </script>
 
@@ -30,8 +25,6 @@
 {:else}
 	<h1>Access Denied</h1>
 	<p>
-		<button on:click={() => updateBioID()}>update Bio</button>
-
 		<a href="/auth/signin"> You must be signed in to view this page </a>
 	</p>
 {/if}
