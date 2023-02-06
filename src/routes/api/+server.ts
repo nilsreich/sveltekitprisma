@@ -17,3 +17,12 @@ export const PUT = async (request) => {
     return json(data)
 }
 
+//create user profile bio
+export const POST = async (request) => {
+    const { bio } = request.body
+    const data = await prisma.user.create({
+        data: { bio }
+    })
+    return json(data)
+}
+
