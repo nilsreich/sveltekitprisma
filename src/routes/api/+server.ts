@@ -7,10 +7,10 @@ export const GET = async () => {
     return json(data)
 };
 
-export const POST = async (request) => {
+export const POST = (async (request) => {
+    console.log(bio, id)
 
     const { bio, id } = await request.body
-console.log(bio, id)
     const data = await prisma.profile.create({
 
         data: {
@@ -21,4 +21,4 @@ console.log(bio, id)
         }
     })
     return json(data)
-}
+})
