@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-  console.log($page.data.session?.user);
+  console.log($page.data.user);
+
 	const getAllUser = async () => {
 		const res = await fetch('/api');
 		const data = await res.json();
