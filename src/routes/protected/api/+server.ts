@@ -11,7 +11,7 @@ export const POST = (async ({request}) => {
         data: {
             bio: content.bio,
             user: {
-                connect: { id: content.id }
+                connect: { id: 'cldspl7ey0000mg09yvpwsw7b' }
             }
         }
     })
