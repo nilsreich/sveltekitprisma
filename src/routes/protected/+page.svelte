@@ -1,23 +1,19 @@
 <script>
-	let a = 0;
-	let b = 0;
-	let total = 0;
+	let bio ='ich bin der test'
   
-	async function add() {
+	async function updateBio() {
 	  const response = await fetch('/api/updateBio', {
 		method: 'POST',
-		body: JSON.stringify({ a, b }),
+		body: JSON.stringify({ bio }),
 		headers: {
 		  'content-type': 'application/json'
 		}
 	  });
   
-	  total = await response.json();
+	  const data = await response.json();
+	  console.log(data)
 	}
   </script>
+
   
-  <input type="number" bind:value={a}> +
-  <input type="number" bind:value={b}> =
-  {total}
-  
-  <button on:click={add}>Calculate</button>
+  <button on:click={updateBio}>send bio</button>
