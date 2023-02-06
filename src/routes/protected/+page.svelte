@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-
+let url
 	const updateBio = async () => {
 		const feed= 'https://www.tagesschau.de/export/video-podcast/webm/tagesschau_https/'
 		const response = await fetch(`/api/updateBio`, {
