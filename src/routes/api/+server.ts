@@ -7,21 +7,15 @@ export const GET = async () => {
     return json(data)
 };
 
-// update user profile bio
-export const PUT = async (request) => {
-    const { id, bio } = request.body
-    const data = await prisma.user.update({
-        where: { id },
-        data: { bio }
-    })
-    return json(data)
-}
-
-//create user profile bio
 export const POST = async (request) => {
-    const { bio } = request.body
-    const data = await prisma.user.create({
-        data: { bio }
+    const { bio, id } = await request.body
+    const data = await prisma.profile.create({
+        data: {
+            bio: bio,
+            user: {
+                connect: { id: id }
+            }
+        }
     })
     return json(data)
 }
