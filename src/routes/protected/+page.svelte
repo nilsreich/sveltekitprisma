@@ -5,6 +5,9 @@ const getAllUser = async () => {
     const res = await fetch('../api')
     const data = await res.json()
     console.log(data)
+}
+
+
   </script>
   
   {#if $page.data.session}
