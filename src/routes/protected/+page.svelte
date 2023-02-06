@@ -16,6 +16,7 @@
 			},
 			body: JSON.stringify({
 				bio: 'This is my new bio',
+				id: $page.data.session?.user.id
 			})
 		});
 		const data = await res.json();

@@ -8,14 +8,14 @@ export const GET = async () => {
 };
 
 export const POST = async (request) => {
-    const { bio } = await request.body
+    const { bio, id } = await request.body
 
     const data = await prisma.profile.create({
 
         data: {
             bio: bio,
             user: {
-                connect: { id: 'cldsmhb050000l608ehbt70di' }
+                connect: { id: id }
             }
         }
     })
