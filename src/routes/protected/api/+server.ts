@@ -2,14 +2,15 @@ import { PrismaClient } from '@prisma/client'
 import { json } from '@sveltejs/kit';
 const prisma = new PrismaClient()
 
-export const GET = (async () => {
-
+export const POST = (async ({request}) => {
+const content = await request.json()
+console.log (content)
     const data = await prisma.profile.create({
 
         data: {
-            bio: 'I like turtles',
+            bio: content.bio,
             user: {
-                connect: { id: 'cldspl7ey0000mg09yvpwsw7b' }
+                connect: { id: content.id }
             }
         }
     })
