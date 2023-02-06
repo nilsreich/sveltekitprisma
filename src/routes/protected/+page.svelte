@@ -8,6 +8,7 @@
 	};
 
 	const updateBio = async () => {
+		console.log($page.data)
 		const res = await fetch('/api', {
 			method: 'POST',
 			headers: {
