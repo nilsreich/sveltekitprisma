@@ -13,7 +13,7 @@
 
 	const updateBioID = async () => {
 		const res = await fetch('/protected/updateBio', {
-			method: 'POST',
+			method: 'PUT',
 			body: JSON.stringify({ bio: 'I am a new bio', id: 'cldspl7ey0000mg09yvpwsw7b' })
 		});
 		const data = await res.json();
