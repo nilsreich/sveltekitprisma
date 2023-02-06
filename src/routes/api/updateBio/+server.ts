@@ -7,13 +7,12 @@ const prisma = new PrismaClient()
 export const POST = (async ({ request }) => {
   const { bio } = await request.json();
 
-  const data = await prisma.user.update({
-    where: {
-      id: 'cldspl7ey0000mg09yvpwsw7b',
-    },
+  const createPost = await prisma.post.create({
     data: {
-      name: bio,
+      title: bio,
+      
     },
+
   })
-  return json(data);
+  return json(createPost);
 }) satisfies RequestHandler;
