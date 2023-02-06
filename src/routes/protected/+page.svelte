@@ -9,14 +9,7 @@
 
 	const updateBio = async () => {
 		const res = await fetch('../api', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				bio: 'This is my new bio',
-				id: 'cldspl7ey0000mg09yvpwsw7b'
-			})
+			method: 'POST'
 		});
 		const data = await res.json();
 		console.log(data);
