@@ -1,5 +1,5 @@
 <script>
-	let bio ='ich bin der test'
+	let bio ='ich bin nilsreich'
   
 	async function updateBio() {
 	  const response = await fetch('/api/updateBio', {
