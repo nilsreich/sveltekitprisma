@@ -16,8 +16,7 @@ export const POST = (async ({ request }) => {
   const { bio } = await request.json();
 
   //  '.update' doesnt work on vercel, maybe create? 
-   await addPost(bio)
-  
+const data = await prisma.post.findMany()  
 
-  return json(bio);
+  return json(data);
 }) satisfies RequestHandler;
