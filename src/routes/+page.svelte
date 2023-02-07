@@ -1,19 +1,34 @@
-<script>
-	let bio ='ich bin neu hier'
+<script lang="ts">
   
-	async function updateBio() {
-	  const response = await fetch('/api/updateBio', {
-		method: 'POST',
-		body: JSON.stringify({ bio }),
-		headers: {
-		  'content-type': 'application/json'
-		}
-	  });
-  
-	  const data = await response.json();
-	  console.log(data)
-	}
-  </script>
+	let title = ''
 
   
-  <button on:click={updateBio}>send bio</button>
+	const handleSubmit = async (e: SubmitEvent) => {
+	  e.preventDefault()
+	  await (
+		await fetch('/api/updateBio', {
+		  method: 'POST',
+		  headers: {
+			'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({
+			title,
+
+		  }),
+		})
+	  ).json()
+  
+	}
+  </script>
+  
+  <div class="page">
+	<form on:submit={handleSubmit}>
+	  <h1>Create Draft</h1>
+	  <input placeholder="Title" type="text" bind:value={title} />
+
+	  <input
+		type="submit"
+		value="Create"
+	  />
+	</form>
+  </div>
