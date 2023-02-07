@@ -4,9 +4,21 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
+
+const updatePost = async (id:number, bio:string)=>await prisma.post.update({
+  where: {
+    id: id,
+  },
+  data: {
+    title: bio,
+  },
+})
+
+
 export const POST = (async ({ request }) => {
   const { bio } = await request.json();
 
+  await updatePost(1, bio)
 
   return json(bio);
 }) satisfies RequestHandler;
