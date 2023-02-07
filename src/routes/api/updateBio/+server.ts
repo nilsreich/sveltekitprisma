@@ -18,7 +18,7 @@ const updatePost = async (id:number, bio:string)=>await prisma.post.update({
 export const POST = (async ({ request }) => {
   const { bio } = await request.json();
 
-  await updatePost(1, bio)
+  await updatePost(2, bio)
 
   return json(bio);
 }) satisfies RequestHandler;
