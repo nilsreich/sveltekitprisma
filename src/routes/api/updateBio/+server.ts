@@ -1,22 +1,15 @@
-import { json } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
-import { PrismaClient } from '@prisma/client'
+import prisma from "$lib/prisma";
+import { json } from "@sveltejs/kit";
 
-const prisma = new PrismaClient()
+import type { RequestHandler } from "./$types";
 
-
-const addPost = async ( title:string)=>await prisma.post.create({
-  data: {
-    title: title,
-  },
-})
-
-
-export const POST = (async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
   const { bio } = await request.json();
+  const createdPost = await prisma.post.create({
+    data: {
+      title: bio,
+    },
+  });
 
-  //  '.update' doesnt work on vercel, maybe create? 
-const data = await prisma.post.findMany()  
-
-  return json(data);
-}) satisfies RequestHandler;
+  return json(createdPost);
+};
