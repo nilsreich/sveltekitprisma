@@ -6,7 +6,7 @@
 	const handleSubmit = async (e: SubmitEvent) => {
 	  e.preventDefault()
 	  await (
-		await fetch('/api/updateBio', {
+		await fetch('/api/post', {
 		  method: 'POST',
 		  headers: {
 			'Content-Type': 'application/json',
